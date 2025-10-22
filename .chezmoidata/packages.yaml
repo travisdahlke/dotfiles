@@ -2,6 +2,18 @@ packages:
   darwin:
     brews:
     - 'git'
+    - 'zsh'
+    - 'starship'
+    - 'mise'
+    - 'bat'
+    - 'fzf'
+    - 'zoxide'
+    - 'eza'
+    - 'ripgrep'
+    - 'fd'
+    - 'git-delta'
+    - 'jq'
+    - 'tmux'
     casks:
     - 'google-chrome'
     - 'firefox'
@@ -9,3 +21,6 @@ packages:
     - 'rectangle'
     - 'obsidian'
     - 'slack'
+    - 'font-jetbrains-mono-nerd-font'
+    - 'visual-studio-code'
+
