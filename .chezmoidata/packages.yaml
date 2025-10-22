@@ -1,0 +1,11 @@
+packages:
+  darwin:
+    brews:
+    - 'git'
+    casks:
+    - 'google-chrome'
+    - 'firefox'
+    - 'ghostty'
+    - 'rectangle'
+    - 'obsidian'
+    - 'slack'
