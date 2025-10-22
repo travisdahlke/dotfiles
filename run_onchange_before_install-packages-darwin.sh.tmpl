@@ -2,10 +2,27 @@
 #!/bin/bash
 
 brew bundle --file=/dev/stdin <<EOF
+{{ range .packages.darwin.taps -}}
+tap {{ . | quote | replace " " "\", \"" }}
+{{ end -}}
 {{ range .packages.darwin.brews -}}
 brew {{ . | quote }}
 {{ end -}}
 {{ range .packages.darwin.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+EOF
+{{ end -}}
+
+{{ if .isWorkComputer -}}
+brew bundle --file=/dev/stdin <<EOF
+{{ range .packages.work.taps -}}
+tap {{ . | quote | replace " " "\", \"" }}
+{{ end -}}
+{{ range .packages.work.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.work.casks -}}
 cask {{ . | quote }}
 {{ end -}}
 EOF

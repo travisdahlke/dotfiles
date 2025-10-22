@@ -1,26 +1,35 @@
 packages:
   darwin:
+    taps: []
     brews:
-    - 'git'
-    - 'zsh'
-    - 'starship'
-    - 'mise'
-    - 'bat'
-    - 'fzf'
-    - 'zoxide'
-    - 'eza'
-    - 'ripgrep'
-    - 'fd'
-    - 'git-delta'
-    - 'jq'
-    - 'tmux'
+      - "bat"
+      - "eza"
+      - "fd"
+      - "fzf"
+      - "git-delta"
+      - "git"
+      - "jq"
+      - "mise"
+      - "ripgrep"
+      - "starship"
+      - "tmux"
+      - "zoxide"
+      - "zsh"
     casks:
-    - 'google-chrome'
-    - 'firefox'
-    - 'ghostty'
-    - 'rectangle'
-    - 'obsidian'
-    - 'slack'
-    - 'font-jetbrains-mono-nerd-font'
-    - 'visual-studio-code'
-
+      - "firefox"
+      - "font-jetbrains-mono-nerd-font"
+      - "ghostty"
+      - "google-chrome"
+      - "obsidian"
+      - "rectangle"
+      - "visual-studio-code"
+      - "zed"
+  work:
+    taps: []
+    brews:
+      - "awscli"
+      - "glab"
+      - "keeper-commander"
+    casks:
+      - "keeper-password-manager"
+      - "slack"
