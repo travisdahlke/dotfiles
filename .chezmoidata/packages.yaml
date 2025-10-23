@@ -21,6 +21,7 @@ packages:
       - "ghostty"
       - "google-chrome"
       - "obsidian"
+      - "raycast"
       - "rectangle"
       - "visual-studio-code"
       - "zed"
