@@ -1,0 +1,28 @@
+{{- $uid := "6GocPh2CL1xF5giD_kZ_ug" -}}
+{{- $rec := keeper $uid -}}
+{{- $profilesJSON := "" -}}
+{{- $sessionsJSON := "" -}}
+{{- range $rec.custom_fields -}}
+  {{- if eq .name "profiles" -}}
+    {{- $profilesJSON = .value -}}
+  {{- end -}}
+  {{- if eq .name "sso-sessions" -}}
+    {{- $sessionsJSON = .value -}}
+  {{- end -}}
+{{- end -}}
+{{- $profiles := fromJson $profilesJSON -}}
+{{- $sessions := fromJson $sessionsJSON -}}
+{{- range $name, $p := $profiles -}}
+[profile {{ $name }}]
+sso_session = {{ $p.sso_session }}
+sso_account_id = {{ $p.sso_account_id }}
+sso_role_name = {{ $p.sso_role_name }}
+
+{{ end -}}
+{{- range $name, $s := $sessions -}}
+[sso-session {{ $name }}]
+sso_start_url = {{ $s.sso_start_url }}
+sso_region = {{ $s.sso_region }}
+sso_registration_scopes = {{ $s.sso_registration_scopes }}
+
+{{ end -}}

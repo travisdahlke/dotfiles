@@ -2,6 +2,7 @@ packages:
   darwin:
     taps: []
     brews:
+      - "age"
       - "bat"
       - "eza"
       - "fd"
@@ -26,11 +27,12 @@ packages:
       - "visual-studio-code"
       - "zed"
   work:
-    taps: []
+    taps: ["common-fate/granted"]
     brews:
       - "awscli"
       - "glab"
       - "keeper-commander"
+      - "granted"
     casks:
       - "keeper-password-manager"
       - "slack"
