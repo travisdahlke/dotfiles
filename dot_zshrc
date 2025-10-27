@@ -1,3 +1,18 @@
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(mise activate zsh)"
+
+# completion; use cache if updated within 24h
+autoload -Uz compinit
+if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
+  compinit -d $HOME/.zcompdump;
+else
+  compinit -C;
+fi;
+
+setopt hist_ignore_all_dups inc_append_history
+HISTFILE=~/.zhistory
+HISTSIZE=1000000
+SAVEHIST=1000000
+
+export PATH="$HOME/.local/bin:$PATH"
