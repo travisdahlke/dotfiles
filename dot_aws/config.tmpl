@@ -1,3 +1,4 @@
+{{- if .isWorkComputer -}}
 {{- $uid := "6GocPh2CL1xF5giD_kZ_ug" -}}
 {{- $rec := keeper $uid -}}
 {{- $profilesJSON := "" -}}
@@ -17,6 +18,7 @@
 sso_session = {{ $p.sso_session }}
 sso_account_id = {{ $p.sso_account_id }}
 sso_role_name = {{ $p.sso_role_name }}
+region = us-east-1
 
 {{ end -}}
 {{- range $name, $s := $sessions -}}
@@ -26,3 +28,4 @@ sso_region = {{ $s.sso_region }}
 sso_registration_scopes = {{ $s.sso_registration_scopes }}
 
 {{ end -}}
+{{- end -}}

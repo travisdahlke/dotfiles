@@ -1,0 +1,22 @@
+[toplevel]
+whoami = sts get-caller-identity
+
+running-instances = ec2 describe-instances \
+    --filter Name=instance-state-name,Values=running \
+    --output table \
+    --query 'Reservations[].Instances[].{ID: InstanceId,Hostname: PublicDnsName,Name: Tags[?Key==`Name`].Value | [0],Type: InstanceType, Platform: Platform || `Linux`}'
+
+ebs-volumes= ec2 describe-volumes \
+    --query 'Volumes[].{VolumeId: VolumeId,State: State,Size: Size,Name: Tags[0].Value,AZ: AvailabilityZone}' \
+    --output table
+
+region = !f() { [[ $# -eq 1 ]] && aws configure set region "$1" || aws configure get region; }; f
+
+get-ssm = ssm get-parameter --with-decryption --query "Parameter.Value" --output text --name
+
+{{ if .isWorkComputer -}}
+deploy = 
+  !f() {
+    ~/.local/bin/aws_deploy "$@"
+  }; f
+{{ end -}}

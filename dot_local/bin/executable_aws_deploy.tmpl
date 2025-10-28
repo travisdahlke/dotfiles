@@ -1,0 +1,114 @@
+{{- if .isWorkComputer -}}
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+branch=""
+repo="${PWD##*/}"
+bus='curate'
+stage=""
+commit=""
+author=""
+optstring=":hb:s:r:e:"
+
+ensure_command() {
+  local cmd=$1
+  local hint=$2
+  if ! command -v "$cmd" >/dev/null 2>&1
+  then
+    echo "$cmd could not be found: Try: $hint"
+    exit 1
+  fi
+}
+
+usage() {
+  cat >&2 <<EOF
+Usage: aws deploy -s <STAGE> [-r <REPO>] [-b <BRANCH>] [-e <BUS>]
+   -s STAGE   stage to deploy (required)
+   -b BRANCH  branch to deploy. defaults to current branch (${branch:-unknown})
+   -r REPO    repo to deploy. defaults to current dir (${repo:-unknown})
+   -e BUS     event bus name. defaults to STAGE-$bus
+EOF
+  exit 1
+}
+
+capture_git_context() {
+  commit=$(git rev-parse HEAD)
+  branch=$(git rev-parse --abbrev-ref HEAD)
+  author=$(git log -1 --format='%an')
+}
+
+parse_args() {
+  OPTIND=1 # Reset getopts index in case the function runs multiple times.
+  while getopts "$optstring" arg
+  do
+    case "$arg" in
+      h) usage;;
+      b) branch=${OPTARG};;
+      s) stage=${OPTARG};;
+      r) repo=${OPTARG};;
+      e) bus=${OPTARG};;
+      :) echo "Option -${OPTARG} requires an argument." >&2; echo >&2; usage;;
+      ?) echo "Invalid option: -${OPTARG}." >&2; echo >&2; usage;;
+    esac
+  done
+}
+
+validate_required_inputs() {
+  if [ -z "${stage}" ]
+  then
+    echo "Stage (-s) is required." >&2
+    echo >&2
+    usage
+  fi
+}
+
+build_event_entries() {
+  jq -n \
+    --arg detailType "deploy-${stage}-${repo}" \
+    --arg eventBus "${stage}-${bus}" \
+    --arg branch "${branch}" \
+    --arg commit "${commit}" \
+    --arg author "${author}" \
+    '{
+      "DetailType": $detailType,
+      "Source": "CLI",
+      "EventBusName": $eventBus,
+      "Detail": ({
+        "environmentVariablesOverride": [
+          {"name": "BRANCH", "value": $branch},
+          {"name": "COMMIT", "value": $commit},
+          {"name": "AUTHOR", "value": $author}
+        ]
+      } | tostring)
+    }'
+}
+
+print_summary() {
+  echo "Triggering code build for $stage-$repo with branch $branch (commit: ${commit:0:8})"
+}
+
+main() {
+  ensure_command git "brew install git"
+  capture_git_context
+
+  if [ $# -eq 0 ]
+  then
+    usage
+  fi
+
+  parse_args "$@"
+  validate_required_inputs
+
+  ensure_command jq "brew install jq"
+  EVENT_ENTRIES=$(build_event_entries)
+
+  print_summary
+  echo "AWS EventBridge payload:"
+  echo "$EVENT_ENTRIES" | jq .
+
+  aws events put-events --entries "$EVENT_ENTRIES"
+}
+
+main "$@"
+{{- end -}}
