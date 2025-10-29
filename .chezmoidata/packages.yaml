@@ -11,6 +11,7 @@ packages:
       - "git" # distributed version control system
       - "jq" # command-line JSON processor
       - "mise" # polyglot runtime manager
+      - "nvim": # highly configurable text editor
       - "ripgrep" # line-oriented search tool
       - "starship" # cross-shell prompt
       - "tmux" # terminal multiplexer
