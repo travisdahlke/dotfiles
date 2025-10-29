@@ -1,0 +1,6 @@
+[user]
+  email = travis@dahlke.me
+  signingkey = D107517741608B41
+
+[commit]
+  gpgsign = true

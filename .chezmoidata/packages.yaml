@@ -2,20 +2,20 @@ packages:
   darwin:
     taps: []
     brews:
-      - "age"
-      - "bat"
-      - "eza"
-      - "fd"
-      - "fzf"
-      - "git-delta"
-      - "git"
-      - "jq"
-      - "mise"
-      - "ripgrep"
-      - "starship"
-      - "tmux"
-      - "zoxide"
-      - "zsh"
+      - "age" # simple, modern and secure file encryption tool
+      - "bat" # cat clone with syntax highlighting and Git integration
+      - "eza" # modern replacement for 'ls'
+      - "fd" # simple, fast and user-friendly alternative to 'find'
+      - "fzf" # command-line fuzzy finder
+      - "git-delta" # syntax-highlighting pager for git and diff output
+      - "git" # distributed version control system
+      - "jq" # command-line JSON processor
+      - "mise" # polyglot runtime manager
+      - "ripgrep" # line-oriented search tool
+      - "starship" # cross-shell prompt
+      - "tmux" # terminal multiplexer
+      - "zoxide" # modern alternative to z and autojump
+      - "zsh" # shell designed for interactive use, although it is also a powerful scripting language
     casks:
       - "firefox"
       - "font-jetbrains-mono-nerd-font"

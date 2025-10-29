@@ -1,5 +1,10 @@
 {{- $isWorkComputer := promptBoolOnce . "isWorkComputer" "Is this your work computer" -}}
 {{- $email := promptStringOnce . "email" "Email address" -}}
+encryption = "age"
+
+[age]
+    identity = "~/.config/chezmoi/age.key"
+    recipient = "age135mggelrxtwdkdnnrrlkh355y85afrt4a73fj70tpah5kh93uasqzpp04n"
 
 [data]
     isWorkComputer = {{ $isWorkComputer }}

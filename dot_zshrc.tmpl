@@ -25,6 +25,8 @@ bindkey "^R" history-incremental-search-backward
 
 export PATH="$HOME/.local/bin:$PATH"
 
+export EDITOR="code --wait"
+
 {{ if .isWorkComputer -}}
 export AWS_PROFILE=curate-nonprod
 export AWS_DEFAULT_REGION=us-east-1

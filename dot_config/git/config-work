@@ -1,0 +1,6 @@
+[user]
+  email = t.dahlke@sportradar.com
+  signingkey = 0268603667C4787A28E2802668ED42897F3FCCA1!
+
+[commit]
+  gpgsign = true
