@@ -20,7 +20,7 @@ $kotlin\
 $haskell\
 $python\
 [](fg:green bg:sapphire)\
-$conda\
+$aws\
 [](fg:sapphire bg:lavender)\
 $time\
 [ ](fg:lavender)\
@@ -138,6 +138,10 @@ symbol = "  "
 style = "fg:crust bg:sapphire"
 format = '[$symbol$environment ]($style)'
 ignore_base = false
+
+[aws]
+format = '[$symbol($profile )(\($region\) )]($style)'
+style = 'fg:crust bg:sapphire'
 
 [time]
 disabled = false
