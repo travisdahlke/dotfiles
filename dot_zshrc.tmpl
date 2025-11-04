@@ -1,7 +1,3 @@
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
-eval "$(mise activate zsh)"
-
 # completion; use cache if updated within 24h
 autoload -Uz compinit
 if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
@@ -9,6 +5,10 @@ if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
 else
   compinit -C;
 fi;
+
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+eval "$(mise activate zsh)"
 
 # history
 setopt hist_ignore_all_dups inc_append_history
@@ -30,4 +30,5 @@ export EDITOR="code --wait"
 {{ if .isWorkComputer -}}
 export AWS_PROFILE=curate-nonprod
 export AWS_DEFAULT_REGION=us-east-1
+export NPM_TOKEN="$(security find-generic-password -s "npm-token" -w)"
 {{ end -}}

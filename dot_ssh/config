@@ -3,9 +3,7 @@ Host *
   ServerAliveCountMax 3
   TCPKeepAlive yes
   AddKeysToAgent yes
-  # UseKeychain yes
   IgnoreUnknown AddKeysToAgent,UseKeychain
   ForwardAgent no
-  IdentitiesOnly yes
 
 Include ~/.ssh/config.d/*.conf

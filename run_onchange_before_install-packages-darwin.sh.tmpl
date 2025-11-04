@@ -15,7 +15,7 @@ EOF
 {{ end -}}
 
 {{ if .isWorkComputer -}}
-brew bundle --file=/dev/stdin <<EOF
+brew bundle --no-upgrade --file=/dev/stdin <<EOF
 {{ range .packages.work.taps -}}
 tap {{ . | quote | replace " " "\", \"" }}
 {{ end -}}
