@@ -28,12 +28,17 @@ packages:
       - "visual-studio-code"
       - "zed"
   work:
-    taps: ["common-fate/granted"]
+    taps: 
+      - "common-fate/granted"
+      - "slp/krunkit"
     brews:
       - "awscli"
+      - "common-fate/granted/granted"
       - "glab"
       - "keeper-commander"
-      - "granted"
+      - "krunkit"
+      - "podman"
     casks:
       - "keeper-password-manager"
+      - "podman-desktop"
       - "slack"

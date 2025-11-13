@@ -30,5 +30,7 @@ export EDITOR="code --wait"
 {{ if .isWorkComputer -}}
 export AWS_PROFILE=curate-nonprod
 export AWS_DEFAULT_REGION=us-east-1
-export NPM_TOKEN="$(security find-generic-password -s "npm-token" -w)"
+export GL_TOKEN="$(security find-generic-password -s "npm-token" -w)"
+
+alias docker="podman"
 {{ end -}}

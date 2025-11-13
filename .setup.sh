@@ -35,6 +35,9 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 # Always open everything in Finder's list view. This is important.
 defaults write com.apple.Finder FXPreferredViewStyle Nlsv
 
+# Show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
 # Show the ~/Library folder.
 chflags nohidden ~/Library
 
@@ -44,3 +47,7 @@ defaults write NSGlobalDomain KeyRepeat -int 1
 # Set the Finder prefs for showing a few different volumes on the Desktop.
 defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
+
+# Dock
+defaults write com.apple.dock "autohide" -bool "true"
+defaults write com.apple.dock "show-recents" -bool "false"
