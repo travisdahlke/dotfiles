@@ -30,6 +30,7 @@ packages:
   work:
     taps: 
       - "common-fate/granted"
+      - "mongodb/brew"
       - "slp/krunkit"
     brews:
       - "awscli"
@@ -37,6 +38,7 @@ packages:
       - "glab"
       - "keeper-commander"
       - "krunkit"
+      - "mongodb-database-tools"
       - "podman"
     casks:
       - "keeper-password-manager"
