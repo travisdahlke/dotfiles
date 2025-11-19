@@ -31,16 +31,11 @@ packages:
     taps: 
       - "common-fate/granted"
       - "mongodb/brew"
-      - "slp/krunkit"
     brews:
       - "awscli"
+      - "colima"
       - "common-fate/granted/granted"
       - "glab"
-      - "keeper-commander"
-      - "krunkit"
       - "mongodb-database-tools"
-      - "podman"
     casks:
-      - "keeper-password-manager"
-      - "podman-desktop"
       - "slack"
