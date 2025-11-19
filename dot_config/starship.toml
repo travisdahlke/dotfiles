@@ -1,26 +1,19 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[](red)\
-$os\
-$username\
-[](bg:peach fg:red)\
+[](peach)\
 $directory\
 [](bg:yellow fg:peach)\
 $git_branch\
 $git_status\
 [](fg:yellow bg:green)\
-$c\
 $rust\
 $golang\
 $nodejs\
-$php\
-$java\
-$kotlin\
-$haskell\
 $python\
 [](fg:green bg:sapphire)\
 $aws\
+$env_var\
 [](fg:sapphire bg:lavender)\
 $time\
 [ ](fg:lavender)\
@@ -29,6 +22,11 @@ $line_break\
 $character"""
 
 palette = 'catppuccin_mocha'
+
+[env_var.STAGE]
+default = ''
+format = '[(\[$env_value\])]($style)'
+style = 'fg:crust bg:sapphire'
 
 [os]
 disabled = false
@@ -56,7 +54,7 @@ Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 
 [username]
-show_always = true
+show_always = false
 style_user = "bg:red fg:crust"
 style_root = "bg:red fg:crust"
 format = '[ $user]($style)'
@@ -66,8 +64,15 @@ style = "bg:peach fg:crust"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
+truncate_to_repo = false
 
 [directory.substitutions]
+"~/projects/work/curate" = "$/curate"
+"/ingest" = "/"
+"baseball" = " "
+"football" = " "
+"hockey" = " "
+"basketball" = " "
 "Documents" = "󰈙 "
 "Downloads" = " "
 "Music" = "󰝚 "
@@ -86,6 +91,7 @@ format = '[[($all_status$ahead_behind )](fg:crust bg:yellow)]($style)'
 [nodejs]
 symbol = ""
 style = "bg:green"
+version_format = "v$major"
 format = '[[ $symbol( $version) ](fg:crust bg:green)]($style)'
 
 [c]
@@ -140,7 +146,8 @@ format = '[$symbol$environment ]($style)'
 ignore_base = false
 
 [aws]
-format = '[$symbol($profile )(\($region\) )]($style)'
+symbol = " \ue7ad "
+format = '[$symbol($profile )]($style)'
 style = 'fg:crust bg:sapphire'
 
 [time]
