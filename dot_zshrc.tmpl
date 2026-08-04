@@ -25,7 +25,7 @@ bindkey "^R" history-incremental-search-backward
 
 export PATH="$HOME/.local/bin:$PATH"
 
-export EDITOR="code --wait"
+export EDITOR="zed --wait"
 
 {{ if .isWorkComputer -}}
 export AWS_PROFILE=curate-nonprod
@@ -34,6 +34,7 @@ export GL_TOKEN="$(security find-generic-password -s "npm-token" -w)"
 export SR_REGISTRY_TOKEN=$GL_TOKEN
 export STAGE=tjd
 export NPM_CONFIG_REGISTRY=https://cdproxy.sportradar.online/npm
+export PIP_INDEX_URL=https://cdproxy.sportradar.online/pypi/simple
 
 # Vite+ bin (https://viteplus.dev)
 . "$HOME/.vite-plus/env"
