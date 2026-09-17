@@ -8,3 +8,4 @@ Host *
   IdentityAgent "~/.config/secretive/agent.sock"
 
 Include ~/.ssh/config.d/*.conf
+Include ~/.colima/ssh_config

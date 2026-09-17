@@ -6,7 +6,7 @@
   email = {{ .email | quote }}
 
 [core]
-  editor = code --wait
+  editor = zed --wait
 
 [alias]
   br = branch
@@ -35,3 +35,9 @@
   path = config-personal
 [includeIf "gitdir:~/projects/work/"]
   path = config-work
+
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f

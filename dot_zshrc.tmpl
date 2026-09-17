@@ -40,3 +40,10 @@ export PIP_INDEX_URL=https://cdproxy.sportradar.online/pypi/simple
 . "$HOME/.vite-plus/env"
 {{ end -}}
 
+# pnpm
+export PNPM_HOME='/Users/t.dahlke/Library/pnpm'
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end

@@ -223,8 +223,8 @@ gaps.outer.right =      0
     S = ['built-in']
     T = ['built-in']
     Z = ['built-in']
-    B = ['dell', 2]
-    E = [3]
+    B = ['^DELL .*( \(1\))?$', 'BenQ']
+    E = ['^DELL .* \(2\)$', 'LEN']
 
 [[on-window-detected]]
     if.app-id = 'org.mozilla.firefox'

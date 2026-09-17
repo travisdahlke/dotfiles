@@ -24,11 +24,11 @@ packages:
       - "google-chrome"
       - "obsidian"
       - "raycast"
-      - "rectangle"
       - "visual-studio-code"
       - "zed"
+      - "nikitabobko/tap/aerospace"
   work:
-    taps: 
+    taps:
       - "common-fate/granted"
       - "mongodb/brew"
     brews:
