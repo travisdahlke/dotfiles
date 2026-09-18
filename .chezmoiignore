@@ -2,3 +2,8 @@ README.md
 {{- if .isWorkComputer }}
 .ssh/config.d/homelab.conf
 {{- end }}
+{{- if not .hasAgeIdentity }}
+.npmrc
+.ssh/config.d/homelab.conf
+.aws/config
+{{- end }}

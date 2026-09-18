@@ -18,24 +18,25 @@ packages:
       - "zoxide" # modern alternative to z and autojump
       - "zsh" # shell designed for interactive use, although it is also a powerful scripting language
     casks:
-      - "firefox"
+      - "helium"
+      # - "firefox"
+      # - "google-chrome"
       - "font-jetbrains-mono-nerd-font"
       - "ghostty"
-      - "google-chrome"
       - "obsidian"
       - "raycast"
-      - "visual-studio-code"
+      # - "visual-studio-code"
       - "zed"
       - "nikitabobko/tap/aerospace"
   work:
     taps:
-      - "common-fate/granted"
-      - "mongodb/brew"
+      # - "common-fate/granted"
+      # - "mongodb/brew"
     brews:
       - "awscli"
       - "colima"
-      - "common-fate/granted/granted"
       - "glab"
-      - "mongodb-database-tools"
+      # - "common-fate/granted/granted"
+      # - "mongodb-database-tools"
     casks:
-      - "slack"
+      # - "slack"
