@@ -18,7 +18,7 @@ packages:
       - "zoxide" # modern alternative to z and autojump
       - "zsh" # shell designed for interactive use, although it is also a powerful scripting language
     casks:
-      - "helium"
+      - "helium-browser"
       # - "firefox"
       # - "google-chrome"
       - "font-jetbrains-mono-nerd-font"
